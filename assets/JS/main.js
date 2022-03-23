@@ -37,14 +37,33 @@ let arrayNumeriUtente = [];
 setTimeout( function() {
 	containerNumeri.classList.add("none");
     for (j=1; j<=5; j++) {
-        let numeriUtente = prompt("Digita uno dei numeri che hai visto");
+        let numeriUtente = parseInt(prompt("Digita uno dei numeri che hai visto"));
         // 5) pushare ogni volta il numero inserito dall'utente in un secondo array
         arrayNumeriUtente.push(numeriUtente);
     }
+
+    // 6) confrontare i due array
+    let numeriUguali = [];
+    let numeriDiversi = [];
+
+    for (k=0; k<5; k++) {
+        if (numeriDiSimon[k] === arrayNumeriUtente[k]) {
+            numeriUguali.push(numeriDiSimon[k]);
+        } else {
+            numeriDiversi.push(numeriDiSimon[k]);
+        }
+    }
+
+    // console.log(numeriUguali);
+    // console.log(numeriDiversi);
+    console.log(`I numeri uguali sono: ${numeriUguali}`);
+    console.log(`I numeri diversi sono: ${numeriDiversi}`);
+
+
+    // 7) stampare a schermo quanti e quali dei numeri l'utente ha ricordato correttamente.
+    document.getElementById("risultato").innerHTML = `I numeri che hai ricordato bene sono ${numeriUguali}`;
+
 }, 10000 ); // ATTENZIONE! IL TIMER è ATTUALMENTE SETTATO A 10 SECONDI PER VELOCIZZARE LO SVILUPPO, RICORDARSI DI PASSARLO A 30 SECONDI QUANDO TUTTO FUNZIONERà!
 
-console.log(arrayNumeriUtente);
 
 
-// 6) confrontare i due array (meglio crearne un terzo contenente solo i risultati affini???)
-// 7) stampare a schermo quanti e quali dei numeri l'utente ha ricordato correttamente.
